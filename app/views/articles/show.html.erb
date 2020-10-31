@@ -9,6 +9,14 @@
   <%= @article.text %>
 </p>
 
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong><%= comment.commenter %></strong><br>
+    <%= comment.body %>
+  </p>
+<% end  %>
+
 <h2>Add a comment:</h2>
 <%= form_with(model: [@article, @article.comments.build], local: true) do |f| %>
   <p>
@@ -22,9 +30,8 @@
   </p>
 
   <p>
-    <%= f.submit "Submit", disable_with: 'Submitting...' %>
+    <%= f.submit %>
   </p>
-
 <% end %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |

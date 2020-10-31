@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    byebug
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
 
